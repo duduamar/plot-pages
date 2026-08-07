@@ -10,18 +10,65 @@ GitHub Pages on the free plan only serves from **public** repos. The app's
 source lives in the private `chiplog` repo; this one holds nothing but static
 HTML, so nothing about the app itself is exposed.
 
+Where it's served
+-----------------
+<https://chiplogapp.com> — a custom apex domain on Cloudflare, not the old
+`duduamar.github.io/chiplog-pages/` path. GitHub redirects the old URLs, so
+nothing that already linked there breaks.
+
+The domain isn't cosmetic. Google's `app-ads.txt` crawler takes the developer
+website from the store listing and fetches `/app-ads.txt` at **that domain's
+root** — which a `github.io` repo path can never satisfy. Serving from an apex
+we own is what makes the ad-seller authorization reachable at all.
+
+DNS notes, because both are easy to get wrong later:
+- The apex `A`/`AAAA` records must be **DNS-only (grey cloud)** in Cloudflare.
+  Proxying them breaks GitHub's Let's Encrypt validation.
+- Email Routing owns the `SPF` TXT record. A domain may have only **one** SPF
+  record, so anything added later (e.g. `include:_spf.google.com` for Gmail
+  send-as) has to be merged into it, never added alongside.
+
 Contents
 --------
 - `index.html` — landing page
 - `support.html` — support / contact
 - `privacy.html` — privacy policy
 - `app-ads.txt` — AdMob seller authorization (required for the app's ad units)
+- `CNAME` — the custom domain, written by GitHub's Pages settings UI
+- `screenshots/` — the images the landing page uses
+
+Every page is a single self-contained file: no build step, no dependencies, no
+external requests. Inline `<style>` only, and light/dark via
+`prefers-color-scheme`. Keep it that way — the pages are read on a phone, from
+a link in the app's Settings tab.
 
 Status
 ------
-The pages are a **skeleton** — real copy, the contact address and the policy's
-effective date are filled in before App Store submission. Look for `[TODO]`
-markers. Tracked in `duduamar/chiplog`: skeleton in #4, final content in #22.
+Launch content is in place (`duduamar/chiplog` #22). The one thing still
+missing is the **App Store link**, which can't exist until the app is live —
+`index.html` says "Coming soon" and carries an HTML comment where the link and
+badge go. Tracked in `duduamar/chiplog` #23.
+
+The privacy policy describes the app as it actually ships: local + private
+CloudKit storage, no developer server, no analytics SDK, AdMob banner with the
+ATT prompt and a non-personalized fallback, and the one-time Remove Ads
+purchase. **If any of that changes, this page changes with it** — and the
+"Last updated" date moves.
 
 The privacy policy and support URLs served from here go into App Store Connect's
-"Privacy Policy URL" and "Support URL" fields.
+"Privacy Policy URL" and "Support URL" fields, and are the same two URLs
+`ChipLogLinks` opens from the app's Settings tab:
+
+- <https://chiplogapp.com/privacy.html>
+- <https://chiplogapp.com/support.html>
+
+Contact on both pages is **support@chiplogapp.com**, forwarded to a personal
+inbox by Cloudflare Email Routing. Keep it that way — a personal address on a
+page built to be indexed is the thing the alias exists to avoid.
+
+Screenshots
+-----------
+`screenshots/*.png` are real Simulator captures (iPhone 17 Pro), cropped above
+the ad banner and scaled to 804px wide. The data in them is invented demo data
+imported from a CSV, not anyone's real results. Re-capture them whenever the UI
+moves on far enough that they'd mislead.
