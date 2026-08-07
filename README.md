@@ -16,12 +16,36 @@ Contents
 - `support.html` — support / contact
 - `privacy.html` — privacy policy
 - `app-ads.txt` — AdMob seller authorization (required for the app's ad units)
+- `screenshots/` — the images the landing page uses
+
+Every page is a single self-contained file: no build step, no dependencies, no
+external requests. Inline `<style>` only, and light/dark via
+`prefers-color-scheme`. Keep it that way — the pages are read on a phone, from
+a link in the app's Settings tab.
 
 Status
 ------
-The pages are a **skeleton** — real copy, the contact address and the policy's
-effective date are filled in before App Store submission. Look for `[TODO]`
-markers. Tracked in `duduamar/chiplog`: skeleton in #4, final content in #22.
+Launch content is in place (`duduamar/chiplog` #22). The one thing still
+missing is the **App Store link**, which can't exist until the app is live —
+`index.html` says "Coming soon" and carries an HTML comment where the link and
+badge go. Tracked in `duduamar/chiplog` #23.
+
+The privacy policy describes the app as it actually ships: local + private
+CloudKit storage, no developer server, no analytics SDK, AdMob banner with the
+ATT prompt and a non-personalized fallback, and the one-time Remove Ads
+purchase. **If any of that changes, this page changes with it** — and the
+"Last updated" date moves.
 
 The privacy policy and support URLs served from here go into App Store Connect's
-"Privacy Policy URL" and "Support URL" fields.
+"Privacy Policy URL" and "Support URL" fields, and are the same two URLs
+`ChipLogLinks` opens from the app's Settings tab:
+
+- <https://duduamar.github.io/chiplog-pages/privacy.html>
+- <https://duduamar.github.io/chiplog-pages/support.html>
+
+Screenshots
+-----------
+`screenshots/*.png` are real Simulator captures (iPhone 17 Pro), cropped above
+the ad banner and scaled to 804px wide. The data in them is invented demo data
+imported from a CSV, not anyone's real results. Re-capture them whenever the UI
+moves on far enough that they'd mislead.

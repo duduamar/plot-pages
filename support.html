@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ChipLog — Support</title>
+<meta name="description" content="Help with ChipLog, the poker session and bankroll tracker for iPhone — contact, FAQ, importing from another tracker, and removing the ads.">
 <style>
   :root { color-scheme: light dark; }
   body {
@@ -13,34 +14,42 @@
   }
   h1 { font-size: 1.6em; }
   h2 { font-size: 1.2em; margin-top: 2em; }
-  h3 { font-size: 1.05em; margin-top: 1.6em; margin-bottom: 0.2em; }
+  h3 { font-size: 1.05em; margin-top: 1.8em; margin-bottom: 0.2em; }
+  ul { padding-left: 1.2em; }
+  li { margin: 0.4em 0; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em;
+    background: #f2f3f4; border-radius: 4px; padding: 1px 5px;
+  }
+  .contact {
+    background: #f4f6f5; border: 1px solid #e2e6e4; border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .contact p { margin: 0; }
   footer { margin-top: 3em; padding-top: 1.5em; border-top: 1px solid #e5e5e5; font-size: 0.95em; }
   footer a { margin-right: 1.2em; }
   a { color: #0a6c3d; }
-  .placeholder {
-    background: #fff8e1; border: 1px solid #e0c96a; border-radius: 8px;
-    padding: 12px 16px; margin-bottom: 2em; font-size: 0.95em; color: #4a3c00;
-  }
   @media (prefers-color-scheme: dark) {
     body { color: #e8e8e8; background: #16181a; }
     footer { border-top-color: #333; }
     a { color: #4ade80; }
-    .placeholder { background: #2b2612; border-color: #6b5d1f; color: #e6d78a; }
+    code { background: #24272a; }
+    .contact { background: #1c1f21; border-color: #2c2f33; }
   }
 </style>
 </head>
 <body>
-  <div class="placeholder">
-    Skeleton page — a real contact address goes in before App Store submission.
-  </div>
 
   <h1>ChipLog Support</h1>
 
-  <p>
-    Something not working, or a feature you're missing? Get in touch:
-    <strong>[TODO — support email]</strong>. Please mention your iPhone model and
-    iOS version, and what you were doing when it went wrong.
-  </p>
+  <div class="contact">
+    <p>
+      Something not working, or a feature you're missing? Email
+      <a href="mailto:duduamar@gmail.com">duduamar@gmail.com</a>. Please mention
+      your iPhone model, your iOS version, the ChipLog version (Settings ›
+      About) and what you were doing when it went wrong.
+    </p>
+  </div>
 
   <h2>Frequently asked questions</h2>
 
@@ -56,31 +65,68 @@
   <p>
     Sign into the same iCloud account and install ChipLog — your sessions sync
     down on their own. If you don't use iCloud, export your sessions to CSV
-    first and import them on the new device.
+    first (Settings › Data) and import that file on the new device.
   </p>
 
   <h3>Does a live session keep running if I close the app?</h3>
   <p>
     Yes. A live session records when it started, so its timer is correct when you
-    come back — even if the app was closed or your phone restarted.
+    come back — even if the app was closed or your phone restarted. While it's
+    running you can add top-ups and update your current stack; the session
+    finishes when you tap End Session and enter what you cashed out.
   </p>
 
   <h3>Can I import my history from another tracker?</h3>
   <p>
-    ChipLog imports CSV, including exports from PokerBankrollTracker.
-    [TODO — link to the import instructions once the format is documented.]
+    Settings › Data › <strong>Import sessions (CSV)</strong> reads two kinds of
+    file, and works out which one you picked on its own:
+  </p>
+  <ul>
+    <li>A CSV that ChipLog exported — from another device, or as a backup.</li>
+    <li>A <strong>PokerBankrollTracker</strong> export.</li>
+  </ul>
+  <p>
+    You get a preview of what will be added before anything is written, and a
+    row the file can't make sense of is reported rather than silently dropped.
+    Sessions you already have are skipped, so re-importing the same file is
+    safe. Coming from a tracker that isn't on this list? Email me the export
+    format — it's the kind of thing worth adding.
+  </p>
+
+  <h3>Where do my exported sessions go?</h3>
+  <p>
+    Settings › Data › <strong>Export sessions (CSV)</strong> hands the file to
+    the standard iOS share sheet, so you choose — Files, Mail, another app. The
+    file is a plain <code>.csv</code> that opens in Numbers or Excel.
   </p>
 
   <h3>How do I get rid of the ads?</h3>
   <p>
     There's a one-time "Remove Ads" purchase in Settings. It's tied to your Apple
-    Account, so "Restore Purchases" brings it back on a new device.
+    Account, so "Restore Purchases" brings it back on a new device. If you
+    decline the tracking prompt you'll still see ads — they're just generic ones
+    rather than ones chosen for you.
+  </p>
+
+  <h3>Can I use more than one currency?</h3>
+  <p>
+    ChipLog uses a single currency at a time, set in Settings. Sessions already
+    logged keep the currency they were played in, so switching doesn't rewrite
+    your history.
+  </p>
+
+  <h3>Is there an iPad or Mac version?</h3>
+  <p>
+    Not today — ChipLog is an iPhone app, portrait only. It needs iOS 26 or
+    later.
   </p>
 
   <h3>How do I delete my data?</h3>
   <p>
-    Deleting the app removes everything stored on the device. To remove the
-    synced copy as well, delete ChipLog's data from your iCloud settings.
+    Settings › Data › <strong>Reset</strong> erases your sessions, and optionally
+    your venues, game types and bankroll entries with them. Deleting the app
+    removes everything stored on the device. To remove the synced copy as well,
+    delete ChipLog's data from your iCloud settings.
   </p>
 
   <footer>
