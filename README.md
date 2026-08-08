@@ -1,19 +1,19 @@
-ChipLog — Pages
-===============
+Plot — Pages
+============
 
-The public landing, support and privacy pages for the **ChipLog** iOS app (a
+The public landing, support and privacy pages for the **Plot** iOS app (a
 poker session and bankroll tracker), plus its `app-ads.txt`.
 
 Why a separate repo
 -------------------
 GitHub Pages on the free plan only serves from **public** repos. The app's
-source lives in the private `chiplog` repo; this one holds nothing but static
+source lives in the private `plot` repo; this one holds nothing but static
 HTML, so nothing about the app itself is exposed.
 
 Where it's served
 -----------------
 <https://chiplogapp.com> — a custom apex domain on Cloudflare, not the old
-`duduamar.github.io/chiplog-pages/` path. GitHub redirects the old URLs, so
+`duduamar.github.io/plot-pages/` path. GitHub redirects the old URLs, so
 nothing that already linked there breaks.
 
 The domain isn't cosmetic. Google's `app-ads.txt` crawler takes the developer
@@ -44,10 +44,16 @@ a link in the app's Settings tab.
 
 Status
 ------
-Launch content is in place (`duduamar/chiplog` #22). The one thing still
+Launch content is in place (`duduamar/plot` #22). The one thing still
 missing is the **App Store link**, which can't exist until the app is live —
 `index.html` says "Coming soon" and carries an HTML comment where the link and
-badge go. Tracked in `duduamar/chiplog` #23.
+badge go. Tracked in `duduamar/plot` #23.
+
+The page copy still says "ChipLog" throughout, and `CNAME` still points at
+`chiplogapp.com`. Both are deliberate: the content rewrite is `duduamar/plot`
+#22, and the domain move is #87 — and `CNAME` in particular must not change
+until the new apex actually resolves, or Pages stops serving the old domain
+while the new one has no DNS and `app-ads.txt` goes unreachable at both.
 
 The privacy policy describes the app as it actually ships: local + private
 CloudKit storage, no developer server, no analytics SDK, AdMob banner with the
@@ -57,7 +63,7 @@ purchase. **If any of that changes, this page changes with it** — and the
 
 The privacy policy and support URLs served from here go into App Store Connect's
 "Privacy Policy URL" and "Support URL" fields, and are the same two URLs
-`ChipLogLinks` opens from the app's Settings tab:
+`PlotLinks` opens from the app's Settings tab:
 
 - <https://chiplogapp.com/privacy.html>
 - <https://chiplogapp.com/support.html>
