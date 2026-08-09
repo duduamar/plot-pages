@@ -12,9 +12,13 @@ HTML, so nothing about the app itself is exposed.
 
 Where it's served
 -----------------
-<https://chiplogapp.com> — a custom apex domain on Cloudflare, not the old
+<https://plotpokertracker.com> — a custom apex domain on Cloudflare, not the old
 `duduamar.github.io/plot-pages/` path. GitHub redirects the old URLs, so
 nothing that already linked there breaks.
+
+The site moved here from `chiplogapp.com` with the rename off "ChipLog"
+(`duduamar/plot` #87). That zone is being torn down and its registration is set
+to lapse — nothing should point at it again.
 
 The domain isn't cosmetic. Google's `app-ads.txt` crawler takes the developer
 website from the store listing and fetches `/app-ads.txt` at **that domain's
@@ -44,16 +48,15 @@ a link in the app's Settings tab.
 
 Status
 ------
-Launch content is in place (`duduamar/plot` #22). The one thing still
-missing is the **App Store link**, which can't exist until the app is live —
-`index.html` says "Coming soon" and carries an HTML comment where the link and
-badge go. Tracked in `duduamar/plot` #23.
+Launch content is in place and carries the **PLOT** name throughout
+(`duduamar/plot` #22). The one thing still missing is the **App Store link**,
+which can't exist until the app is live — `index.html` says "Coming soon" and
+carries an HTML comment where the link and badge go. Tracked in
+`duduamar/plot` #23.
 
-The page copy still says "ChipLog" throughout, and `CNAME` still points at
-`chiplogapp.com`. Both are deliberate: the content rewrite is `duduamar/plot`
-#22, and the domain move is #87 — and `CNAME` in particular must not change
-until the new apex actually resolves, or Pages stops serving the old domain
-while the new one has no DNS and `app-ads.txt` goes unreachable at both.
+The name is written **PLOT** in copy, matching `CFBundleDisplayName` and the
+home screen's header. `Plot` is only ever the code-side prefix, so it doesn't
+belong on these pages.
 
 The privacy policy describes the app as it actually ships: local + private
 CloudKit storage, no developer server, no analytics SDK, AdMob banner with the
@@ -65,10 +68,10 @@ The privacy policy and support URLs served from here go into App Store Connect's
 "Privacy Policy URL" and "Support URL" fields, and are the same two URLs
 `PlotLinks` opens from the app's Settings tab:
 
-- <https://chiplogapp.com/privacy.html>
-- <https://chiplogapp.com/support.html>
+- <https://plotpokertracker.com/privacy.html>
+- <https://plotpokertracker.com/support.html>
 
-Contact on both pages is **support@chiplogapp.com**, forwarded to a personal
+Contact on both pages is **support@plotpokertracker.com**, forwarded to a personal
 inbox by Cloudflare Email Routing. Keep it that way — a personal address on a
 page built to be indexed is the thing the alias exists to avoid.
 
@@ -78,3 +81,12 @@ Screenshots
 the ad banner and scaled to 804px wide. The data in them is invented demo data
 imported from a CSV, not anyone's real results. Re-capture them whenever the UI
 moves on far enough that they'd mislead.
+
+**Don't invent a fresh history to re-shoot one screen.** The numbers here are
+published — the bankroll appears on both the Home and Stats shots, and the
+Sessions list has to agree with them — so the dataset is committed in the app
+repo, along with the crop step and the order to shoot the screens in:
+
+- `duduamar/plot` — `scripts/demo-data.csv` (built by `scripts/make-demo-data.mjs`,
+  which fails if the totals drift off what this site states)
+- `duduamar/plot` — `docs/screenshots.md`, the full recipe
