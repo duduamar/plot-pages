@@ -31,7 +31,7 @@
 <body>
 
   <h1>Privacy Policy for PLOT</h1>
-  <p class="updated">Last updated: 8 August 2026</p>
+  <p class="updated">Last updated: 3 October 2026</p>
 
   <p>
     PLOT ("the app") is a poker session and bankroll tracker for iPhone. This
@@ -44,8 +44,9 @@
     Everything you log stays on your device and in your own private iCloud
     storage. There is no PLOT account, and the developer operates no server
     and cannot see your sessions, your results or your bankroll. The only third
-    parties involved are Apple, which provides iCloud and handles purchases, and
-    Google AdMob, which serves the ads in the free version.
+    parties involved are Apple, which provides iCloud and handles purchases,
+    Google AdMob, which serves the ads in the free version, and Dropbox, only if
+    you choose to turn on Dropbox backup.
   </p>
 
   <h2>What the app stores</h2>
@@ -74,6 +75,12 @@
     the developer of PLOT has no access to it.
   </p>
   <p>
+    Your app settings sync the same way, through your iCloud account's
+    key-value storage. That covers your currency, your new-session defaults and
+    your Dropbox backup settings, including which Dropbox account the backup
+    uses. Sign-ins are never synced: each device keeps its own.
+  </p>
+  <p>
     PLOT sends nothing to any server operated by the developer, because there
     isn't one.
   </p>
@@ -85,6 +92,43 @@
     import reads only the single file you pick. Where an exported file then goes
     — Files, Mail, another app — is your choice, and PLOT isn't involved once
     you've made it.
+  </p>
+
+  <h2 id="dropbox">Dropbox backup (optional)</h2>
+  <p>
+    If you turn it on in Settings › Data › Dropbox backup, PLOT saves the same
+    sessions CSV to your own Dropbox account on the schedule you choose. It's
+    off until you connect an account, and nothing goes to Dropbox before then.
+  </p>
+  <ul>
+    <li>
+      <strong>What's sent:</strong> only that CSV file, uploaded straight from
+      your device to Dropbox. It goes to a folder of PLOT's own,
+      <em>Apps › PLOT Poker Tracker</em>. The app can't see or change anything
+      else in your Dropbox.
+    </li>
+    <li>
+      <strong>What PLOT learns about your account:</strong> the email address or
+      name of the account you connected, so the settings screen can show which
+      one it is. It's kept with your other settings, on your device and in your
+      own iCloud, and never sent to the developer.
+    </li>
+    <li>
+      <strong>Your sign-in:</strong> you sign in on Dropbox's own page, so PLOT
+      never sees your Dropbox password. The access Dropbox grants is stored in
+      your device's Keychain and is never synced or sent to the developer.
+    </li>
+    <li>
+      <strong>Turning it off:</strong> Disconnect in the same screen cancels
+      PLOT's access and removes it from your device. Backups already in your
+      Dropbox stay there until you delete them. You can also remove PLOT under
+      <em>Connected apps</em> in your Dropbox account settings.
+    </li>
+  </ul>
+  <p>
+    The files in your Dropbox are governed by
+    <a href="https://www.dropbox.com/privacy">Dropbox's privacy policy</a>. As
+    with iCloud, the developer of PLOT has no access to them.
   </p>
 
   <h2 id="advertising">Advertising</h2>
@@ -140,8 +184,10 @@
     Settings › Data › Reset erases your sessions, and optionally your lists and
     bankroll entries with them. Deleting the app removes what's stored on the
     device. To remove the synced copy as well, delete PLOT's data from your
-    iCloud storage settings. You can export everything to CSV first if you want
-    to keep a copy.
+    iCloud storage settings. If you used Dropbox backup, the backup files stay in
+    your Dropbox's <em>Apps › PLOT Poker Tracker</em> folder until you delete
+    them there. You can export everything to CSV first if you want to keep a
+    copy.
   </p>
 
   <h2>Changes to this policy</h2>

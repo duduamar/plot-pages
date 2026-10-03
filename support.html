@@ -57,7 +57,8 @@
   <p>
     On your iPhone, and — if you're signed into iCloud — in your own private
     iCloud storage, which is what syncs it between your devices. There's no
-    PLOT account and no PLOT server. See the
+    PLOT account and no PLOT server. If you turn on Dropbox backup, a copy of
+    your sessions also goes to your own Dropbox. See the
     <a href="privacy.html">privacy policy</a>.
   </p>
 
@@ -98,6 +99,24 @@
     Settings › Data › <strong>Export sessions (CSV)</strong> hands the file to
     the standard iOS share sheet, so you choose — Files, Mail, another app. The
     file is a plain <code>.csv</code> that opens in Numbers or Excel.
+  </p>
+
+  <h3>Can PLOT back up my sessions automatically?</h3>
+  <p>
+    Yes, to Dropbox. In Settings › Data › <strong>Dropbox backup</strong>, connect
+    your Dropbox account and choose how often (daily, weekly or monthly) and how
+    many backups to keep. Each backup is the same CSV as Export, saved in
+    <em>Dropbox › Apps › PLOT Poker Tracker</em>. A backup is skipped if nothing
+    has changed since the last one.
+  </p>
+  <p>
+    To restore, use <strong>Import sessions (CSV)</strong> and pick the file from
+    Dropbox in the Files app. Sessions you already have are skipped. Backups
+    include your sessions only, not bankroll deposits and withdrawals.
+  </p>
+  <p>
+    iCloud sync isn't a backup: if you erase your data, the erase syncs to your
+    other devices too. A Dropbox backup is a copy that sync doesn't touch.
   </p>
 
   <h3>How do I get rid of the ads?</h3>
